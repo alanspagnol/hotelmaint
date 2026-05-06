@@ -35,4 +35,14 @@ router.put('/:id', authMiddleware, requireRole('admin'), (req, res) => {
   res.json({ id: req.params.id, nome, role, hotel_id });
 });
 
+router.post('/:id/redefinir-senha', authMiddleware, requireRole('admin'), (req, res) => {
+  const bcrypt = require('bcryptjs');
+  const db = getDB();
+  const { nova_senha } = req.body;
+  if (!nova_senha || nova_senha.length < 6) return res.status(400).json({ error: 'Senha deve ter ao menos 6 caracteres' });
+  const hash = bcrypt.hashSync(nova_senha, 10);
+  db.prepare('UPDATE usuarios SET senha_hash = ? WHERE id = ?').run(hash, req.params.id);
+  res.json({ message: 'Senha redefinida com sucesso' });
+});
+
 module.exports = router;
