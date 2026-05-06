@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f0f4f8;
+  overscroll-behavior: none;
+}
+
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+@layer components {
+  .btn { @apply flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold text-sm transition-all active:scale-95 w-full; }
+  .btn-primary { @apply bg-blue-800 text-white; }
+  .btn-secondary { @apply bg-slate-100 text-blue-800 border border-blue-200; }
+  .btn-success { @apply bg-green-600 text-white; }
+  .btn-danger { @apply bg-red-600 text-white; }
+  .btn-sm { @apply px-3 py-2 text-xs w-auto; }
+  .input { @apply w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm bg-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 mb-2.5; }
+  .label { @apply block text-xs font-semibold text-slate-600 mb-1; }
+  .card { @apply bg-white rounded-xl p-4 border border-slate-100 shadow-sm mb-3; }
+  .badge { @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold; }
+  .badge-urgente { @apply bg-red-50 text-red-700; }
+  .badge-alta { @apply bg-orange-50 text-orange-700; }
+  .badge-normal { @apply bg-blue-50 text-blue-700; }
+  .badge-baixa { @apply bg-slate-100 text-slate-600; }
+  .badge-status { @apply bg-slate-100 text-slate-600; }
+  .badge-ok { @apply bg-green-50 text-green-700; }
+  .badge-risco { @apply bg-yellow-50 text-yellow-700; }
+  .badge-estouro { @apply bg-red-50 text-red-700; }
+  .os-card { @apply bg-white rounded-xl p-4 mb-2 border-l-4 border-slate-200 shadow-sm active:shadow-md cursor-pointer; }
+  .os-urgente { @apply border-l-red-500; }
+  .os-alta { @apply border-l-orange-500; }
+  .os-normal { @apply border-l-blue-500; }
+  .os-baixa { @apply border-l-slate-300; }
+}
