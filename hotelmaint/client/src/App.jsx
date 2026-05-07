@@ -7,6 +7,7 @@ import OS from './pages/OS'
 import OSDetalhe from './pages/OSDetalhe'
 import NovaOS from './pages/NovaOS'
 import { Preventiva, Estoque, Relatorios } from './pages/Preventiva'
+import Configuracoes from './pages/Configuracoes'
 
 function PrivateRoute({ children }) {
   const { user } = useAuth()
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="preventiva" element={<Preventiva />} />
             <Route path="estoque" element={<Estoque />} />
             <Route path="relatorios" element={<Relatorios />} />
+            <Route path="configuracoes" element={<Configuracoes />} />
           </Route>
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
